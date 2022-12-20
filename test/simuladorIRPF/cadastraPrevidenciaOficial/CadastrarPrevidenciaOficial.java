@@ -33,6 +33,14 @@ class CadastrarPrevidenciaOficial {
 		
 		assertEquals(150f, valorPrevidenciaOficial, 0);
 	}
+	
+	@Test
+	void testCadastraPrevidenciaOficialCase4() {
+		sim.cadastrarPrevidenciaOficial(1100f);
+		float valorPrevidenciaOficial = sim.getValorPrevidenciaOficial();
+		
+		assertEquals(1100f, valorPrevidenciaOficial, 0);
+	}
 
 }
 
