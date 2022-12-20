@@ -1,6 +1,8 @@
 package simuladorIRPF.cadastraPrevidenciaOficial;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import Exceptions.DescricaoEmBrancoException;
@@ -24,6 +26,27 @@ class CadastrarPrevidenciaOficial {
 		assertEquals(sim.cadastrarPrevidenciaOficial("Previdencia Oficial 2", 300.00f), 300f, 0);
 
 		assertEquals(450f, sim.getValorTotalPrevidenciasOficiais(), 0f);
+	}
+	
+	@Test
+	public void testCadastraDescricaoEmBranco() throws Exception {
+		Assertions.assertThrows(DescricaoEmBrancoException.class, 
+					() -> sim.cadastrarPrevidenciaOficial(" ", 450f));
+			
+	}
+	
+	@Test
+	public void testCadastraValorInvalido() throws Exception {
+		Assertions.assertThrows(ValorDeducaoInvalidoException.class, 
+					() -> sim.cadastrarPrevidenciaOficial("Previdencia oficial", 0f));
+			
+	}
+	
+	@Test
+	public void testCadastraValorInvalido2() throws Exception {
+		Assertions.assertThrows(ValorDeducaoInvalidoException.class, 
+					() -> sim.cadastrarPrevidenciaOficial("Previdencia oficial", -10f));
+			
 	}
 
 }
