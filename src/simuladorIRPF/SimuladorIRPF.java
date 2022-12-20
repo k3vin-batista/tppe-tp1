@@ -18,7 +18,7 @@ public class SimuladorIRPF {
 	private float valorTotalDeducao;
 	private float valorTotalDependenteTriangulacao;
 	private float valorDependente = 299.99f;
-	private float valorTotalPrevidenciasOficiaisTriangulacao;
+	private float valorTotalPrevidenciasOficiais = 0f;
 	private List<PrevidenciaOficial> previdenciasOficiais;
 	
 
@@ -45,8 +45,30 @@ public class SimuladorIRPF {
 		return totalRendimentos;
 	}
 	
+	public float cadastrarPrevidenciaOficial(String descricao, float valorPrevidencia) throws DescricaoEmBrancoException, ValorDeducaoInvalidoException {
+		
+		// -=-=-=-=-=-=- Validations -=-=-=-=-=-=-
+
+		if (descricao.trim().length() < 1) {
+			throw new DescricaoEmBrancoException();
+		}
+		
+		if (valorPrevidencia <= 0) {
+			throw new ValorDeducaoInvalidoException();
+		}
+		
+		// -=-=-=-=-=-=- Business Rules -=-=-=-=-=-=-
+		
+		PrevidenciaOficial novaPrevidenciaOficial = new PrevidenciaOficial(descricao, valorPrevidencia);
+		
+		this.valorTotalPrevidenciasOficiais += novaPrevidenciaOficial.valor;
+		
+		return novaPrevidenciaOficial.valor;
+	}
+
+	
 	public float getValorTotalPrevidenciasOficiais() {
-		return 350f; // Falsificacao
+		return this.valorTotalPrevidenciasOficiais;
 	}
 	
 	public void cadastroDependente(String nomeDependente, String dataDeNascimento) throws Exception {

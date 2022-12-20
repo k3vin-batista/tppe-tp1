@@ -4,9 +4,9 @@ public class PrevidenciaOficial {
 	public String descricao;
 	public float valor;
 	
-	public PrevidenciaOficial(String descricao, float valor) {
+	public PrevidenciaOficial(String descricao, float valorPrev) {
 		super();
 		this.descricao = descricao;
-		this.valor = valor;
+		this.valor = valorPrev;
 	}
 }
