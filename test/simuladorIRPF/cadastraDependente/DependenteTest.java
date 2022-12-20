@@ -20,5 +20,17 @@ class DependenteTest {
 		SimuladorIRPF.cadastroDependente("Ailton", "01/10/1990");
         assertEquals(299.99f, SimuladorIRPF.getDependente(),0f);
     }
+	
+	@Test
+    public void testeCadastraDependente2() throws Exception{
+		SimuladorIRPF.cadastroDependente("Ailton Aires", "01/10/1990");
+        assertEquals(299.99f, SimuladorIRPF.getDependente(),0f);
+    }
 
+	@Test
+    public void testeCadastraDoisDependente3() throws Exception{
+		SimuladorIRPF.cadastroDependente("Ailton", "01/10/1990");
+		SimuladorIRPF.cadastroDependente("Aires", "01/10/1990");
+        assertEquals(599.98f, SimuladorIRPF.getDependente(),0f);
+    }
 }

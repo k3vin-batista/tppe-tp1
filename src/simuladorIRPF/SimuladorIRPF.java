@@ -7,12 +7,12 @@ import java.util.List;
 import Exceptions.NameIsNullTrowException;
 
 public class SimuladorIRPF {
-	private String nomeDepedente;
-	private String dataDeNascimento;
+
 	private List<Dependente> dependente;
 	private float valorTotalDependente;
 	private String descricaoDeducao;
 	private float valorDeducao;
+	private float valorTotalDependenteTriangulacao;
 
 	private static List<Rendimento> rendimentos;
 	
@@ -43,8 +43,7 @@ public class SimuladorIRPF {
 		}
 		Dependente dependente = new Dependente(nomeDependente, dataDeNascimento);
 		this.dependente.add(dependente);
-		
-		this.valorTotalDependente += 189.59f;
+		this.valorTotalDependenteTriangulacao += 299.99f;
 	}
 	
 
@@ -53,7 +52,7 @@ public class SimuladorIRPF {
 	}	
 	
 	public float getDependente() {
-		return 299.99f; // Falsificação
+		return this.valorTotalDependenteTriangulacao; // Teste de Triangulacao
 	}
 
 	public void cadastrarDeducao(String descricaoDeducao, float valorDeducao) {
