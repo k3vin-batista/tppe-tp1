@@ -2,18 +2,25 @@ package simuladorIRPF.cadastraPrevidencia;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+
+import simuladorIRPF.SimuladorIRPF;
 
 class PrevidenciaOficialTest {
+	
+	SimuladorIRPF sim;
 
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
+	@BeforeEach
+	public void setUp() {
+		sim = new SimuladorIRPF();
 	}
-
+	
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testCadastraPrevidenciaOficial() {
+		assertEquals(300f, sim.cadastrarPrevidenciaOficial(300f), 0);
 	}
 
 }
+
+

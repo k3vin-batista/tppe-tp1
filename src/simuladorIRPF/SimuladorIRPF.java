@@ -18,6 +18,7 @@ public class SimuladorIRPF {
 	private float valorTotalDeducao;
 	private float valorTotalDependenteTriangulacao;
 	private float valorDependente = 299.99f;
+	private float valorPrevidenciaOficial;
 	
 
 	private static List<Rendimento> rendimentos;
@@ -41,6 +42,19 @@ public class SimuladorIRPF {
 		}
 		
 		return totalRendimentos;
+	}
+	
+	public float cadastrarPrevidenciaOficial(float valor) {
+		
+		PrevidenciaOficial previdencia = new PrevidenciaOficial(valor);
+		
+		valorPrevidenciaOficial = previdencia.valor;
+		
+		return valorPrevidenciaOficial;
+	}
+	
+	public float getValorPrevidenciaOficial() {
+		return valorPrevidenciaOficial;
 	}
 	
 	public void cadastroDependente(String nomeDependente, String dataDeNascimento) throws Exception {
