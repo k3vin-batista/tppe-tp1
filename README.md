@@ -9,3 +9,4 @@ Repositório para o trabalho prático 1 da disciplina Tópicos de Programação 
 | 180042386 | Kevin Luis Apolinario Batista |
 | 170011119 | Geraldo Victor Alves Barbosa  |
 | 170013987 | João Victor de Oliveira Matos |
+| 180042661 | Luís Fernando Furtado de Araújo |

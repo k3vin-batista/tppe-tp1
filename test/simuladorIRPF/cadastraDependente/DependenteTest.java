@@ -2,8 +2,11 @@ package simuladorIRPF.cadastraDependente;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import Exceptions.NameIsNullTrowException;
 import simuladorIRPF.SimuladorIRPF;
 
 class DependenteTest {
@@ -33,4 +36,12 @@ class DependenteTest {
 		SimuladorIRPF.cadastroDependente("Aires", "01/10/1990");
         assertEquals(599.98f, SimuladorIRPF.getDependente(),0f);
     }
+	
+	@Test
+	
+	public void testeCadastraDependenteEmBranco4() throws Exception {
+		Assertions.assertThrows(NameIsNullTrowException.class, 
+					() -> SimuladorIRPF.cadastroDependente(" ", "01/10/1990"));
+			
+	}
 }

@@ -11,10 +11,16 @@ import Exceptions.ValorDeducaoInvalidoException;
 public class SimuladorIRPF {
 
 	private List<Dependente> dependente;
+	private String descricaoDeducao;
+	private float valorDeducao;
 	private float valorTotalDependente;
 	private List<Deducao> deducoes;
 	private float valorTotalDeducao;
 	private float valorTotalDependenteTriangulacao;
+	private float valorDependente = 299.99f;
+	private float valorTotalPrevidenciasOficiais = 0f;
+	private List<PrevidenciaOficial> previdenciasOficiais;
+	
 
 	private static List<Rendimento> rendimentos;
 	
@@ -39,13 +45,39 @@ public class SimuladorIRPF {
 		return totalRendimentos;
 	}
 	
+	public float cadastrarPrevidenciaOficial(String descricao, float valorPrevidencia) throws DescricaoEmBrancoException, ValorDeducaoInvalidoException {
+		
+		// -=-=-=-=-=-=- Validations -=-=-=-=-=-=-
+
+		if (descricao.trim().length() < 1) {
+			throw new DescricaoEmBrancoException();
+		}
+		
+		if (valorPrevidencia <= 0) {
+			throw new ValorDeducaoInvalidoException();
+		}
+		
+		// -=-=-=-=-=-=- Business Rules -=-=-=-=-=-=-
+		
+		PrevidenciaOficial novaPrevidenciaOficial = new PrevidenciaOficial(descricao, valorPrevidencia);
+		
+		this.valorTotalPrevidenciasOficiais += novaPrevidenciaOficial.valor;
+		
+		return novaPrevidenciaOficial.valor;
+	}
+
+	
+	public float getValorTotalPrevidenciasOficiais() {
+		return this.valorTotalPrevidenciasOficiais; // teste de duplicação
+	}
+	
 	public void cadastroDependente(String nomeDependente, String dataDeNascimento) throws Exception {
 		if(nomeDependente.trim().length()<1) {
 			throw new NameIsNullTrowException();
 		}
 		Dependente dependente = new Dependente(nomeDependente, dataDeNascimento);
 		this.dependente.add(dependente);
-		this.valorTotalDependenteTriangulacao += 299.99f;
+		this.valorTotalDependenteTriangulacao += valorDependente;
 	}
 	
 
