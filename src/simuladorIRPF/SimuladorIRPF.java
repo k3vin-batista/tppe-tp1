@@ -25,5 +25,12 @@ public class SimuladorIRPF {
 		
 		return totalRendimentos;
 	}
+	
+	public float cadastrarDeducao(String descricao, float valor) {
+		return 0f; 
+	}
 
+	public float getFaixa() {
+		return 0f; // Falsificacao
+	}
 }
