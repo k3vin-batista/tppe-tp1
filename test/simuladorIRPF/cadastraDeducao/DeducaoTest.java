@@ -16,19 +16,19 @@ public class DeducaoTest {
         simul = new SimuladorIRPF();
     }
     
-//	@Test
-//    public void testeCadastraDeducaoUm() {
-//        simul.cadastrarDeducao("Previdencia privada", 1500f);
-//        
-//        assertEquals(1500f, simul.getDeducao(),0f);
-//    }
-//
-//	@Test
-//    public void testeCadastraDeducaoDois() {
-//        simul.cadastrarDeducao("Previdencia privada", 1200f);
-//        
-//        assertEquals(1200f, simul.getDeducao(),0f);
-//    }
+	@Test
+    public void testeCadastraDeducaoUm() throws Exception {
+        simul.cadastrarDeducao("Previdencia privada", 1500f);
+        
+        assertEquals(1500f, simul.getDeducao(),0f);
+    }
+
+	@Test
+    public void testeCadastraDeducaoDois() throws Exception	{
+        simul.cadastrarDeducao("Previdencia privada", 1200f);
+        
+        assertEquals(1200f, simul.getDeducao(),0f);
+    }
 	
 	@Test
     public void testeCadastraDuasDeducao() throws Exception {
