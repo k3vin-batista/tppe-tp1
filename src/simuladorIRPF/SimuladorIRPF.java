@@ -68,7 +68,7 @@ public class SimuladorIRPF {
 
 	
 	public float getValorTotalPrevidenciasOficiais() {
-		return this.valorTotalPrevidenciasOficiais;
+		return this.valorTotalPrevidenciasOficiais; // teste de duplicação
 	}
 	
 	public void cadastroDependente(String nomeDependente, String dataDeNascimento) throws Exception {
