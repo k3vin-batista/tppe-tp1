@@ -26,13 +26,13 @@ class CadastrarPrevidenciaOficial {
 		assertEquals(150f, sim.cadastrarPrevidenciaOficial(150f), 0);
 	}
 	
-//	@Test
-//	void testCadastraPrevidenciaOficialCase3() {
-//		sim.cadastrarPrevidenciaOficial(150f);
-//		float valorPrevidenciaOficial = sim.getValorPrevidenciaOficial();
-//		
-//		assertEquals(150f, valorPrevidenciaOficial, 0);
-//	}
+	@Test
+	void testCadastraPrevidenciaOficialCase3() {
+		sim.cadastrarPrevidenciaOficial(150f);
+		float valorPrevidenciaOficial = sim.getValorPrevidenciaOficial();
+		
+		assertEquals(150f, valorPrevidenciaOficial, 0);
+	}
 
 }
 
