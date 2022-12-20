@@ -5,13 +5,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Exceptions.NameIsNullTrowException;
+import Exceptions.DescricaoEmBrancoException;
+import Exceptions.ValorDeducaoInvalidoException;
 
 public class SimuladorIRPF {
 
 	private List<Dependente> dependente;
 	private float valorTotalDependente;
-	private String descricaoDeducao;
-	private float valorDeducao;
+	private List<Deducao> deducoes;
+	private float valorTotalDeducao;
 	private float valorTotalDependenteTriangulacao;
 
 	private static List<Rendimento> rendimentos;
@@ -55,13 +57,20 @@ public class SimuladorIRPF {
 		return this.valorTotalDependenteTriangulacao; // Teste de Triangulacao
 	}
 
-	public void cadastrarDeducao(String descricaoDeducao, float valorDeducao) {
-		this.descricaoDeducao = descricaoDeducao;
-		this.valorDeducao = valorDeducao;
+	public void cadastrarDeducao(String descricaoDeducao, float valorDeducao) throws Exception  {
+		if(descricaoDeducao.trim().length()<1) {
+			throw new DescricaoEmBrancoException();
+		}
+		if(valorDeducao<=0) {
+			throw new ValorDeducaoInvalidoException();
+		}
+		
+		Deducao deducao = new Deducao(descricaoDeducao,valorDeducao);
+		this.valorTotalDeducao += valorDeducao;	
 	}
 
 	public float getDeducao() {
-		return this.valorDeducao ; //Duplicaocao
+		return this.valorTotalDeducao ; //Duplicacao
 	}
 	
 }
