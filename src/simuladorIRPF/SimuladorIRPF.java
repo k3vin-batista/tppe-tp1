@@ -61,9 +61,7 @@ public class SimuladorIRPF {
 	}
 
 	public float getDeducao() {
-		return 1500f; //Falsificação
+		return this.valorDeducao ; //Duplicaocao
 	}
 	
-	
-
 }
