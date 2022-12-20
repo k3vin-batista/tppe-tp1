@@ -20,6 +20,8 @@ public class SimuladorIRPF {
 	private float valorDependente = 299.99f;
 	private float valorTotalPrevidenciasOficiais = 0f;
 	private List<PrevidenciaOficial> previdenciasOficiais;
+	private String descontoPensaoAlimenticia;
+	private float valorPensaoAlimenticia;
 	
 
 	private static List<Rendimento> rendimentos;
@@ -103,6 +105,18 @@ public class SimuladorIRPF {
 
 	public float getDeducao() {
 		return this.valorTotalDeducao ; //Duplicacao
+	}
+	
+	public void cadastrarPensaoAlimenticia(
+			String descontoPensaoAlimenticia, 
+			float valorPensaoAlimenticia) 
+	{
+		this.descontoPensaoAlimenticia = descontoPensaoAlimenticia;
+		this.valorPensaoAlimenticia = valorPensaoAlimenticia;
+	}
+	
+	public float getPensaoAlimenticia() {
+		return 250f; // Falsificação
 	}
 	
 }

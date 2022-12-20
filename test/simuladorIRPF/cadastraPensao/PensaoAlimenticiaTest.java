@@ -1,19 +1,22 @@
 package simuladorIRPF.cadastraPensao;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
+import simuladorIRPF.SimuladorIRPF;
 
 class PensaoAlimenticiaTest {
 
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
+	private SimuladorIRPF simuladorIRPF;
+	
+	@Before
+	public void setup() {
+		simuladorIRPF = new SimuladorIRPF();
 	}
-
+	
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void testPensaoAlimenticiaUnica() {
+		simuladorIRPF.cadastrarPensaoAlimenticia("Pensao", 250f);
+		assertEquals(250f, simuladorIRPF.getPensaoAlimenticia(), 0f);
 	}
-
 }
