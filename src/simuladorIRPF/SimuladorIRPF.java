@@ -9,10 +9,11 @@ import Exceptions.NameIsNullTrowException;
 public class SimuladorIRPF {
 
 	private List<Dependente> dependente;
-	private float valorTotalDependente;
 	private String descricaoDeducao;
 	private float valorDeducao;
 	private float valorTotalDependenteTriangulacao;
+	private float valorDependente = 299.99f;
+	
 
 	private static List<Rendimento> rendimentos;
 	
@@ -43,7 +44,7 @@ public class SimuladorIRPF {
 		}
 		Dependente dependente = new Dependente(nomeDependente, dataDeNascimento);
 		this.dependente.add(dependente);
-		this.valorTotalDependenteTriangulacao += 299.99f;
+		this.valorTotalDependenteTriangulacao += valorDependente;
 	}
 	
 
