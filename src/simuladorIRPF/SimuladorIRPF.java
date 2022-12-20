@@ -11,6 +11,8 @@ public class SimuladorIRPF {
 	private String dataDeNascimento;
 	private List<Dependente> dependente;
 	private float valorTotalDependente;
+	private String descricaoDeducao;
+	private float valorDeducao;
 
 	private static List<Rendimento> rendimentos;
 	
@@ -35,10 +37,6 @@ public class SimuladorIRPF {
 		return totalRendimentos;
 	}
 	
-	public float cadastrarDeducao(String descricao, float valor) {
-		return 0f; 
-	}
-
 	public void cadastroDependente(String nomeDependente, String dataDeNascimento) throws Exception {
 		if(nomeDependente.trim().length()<1) {
 			throw new NameIsNullTrowException();
@@ -57,4 +55,16 @@ public class SimuladorIRPF {
 	public float getDependente() {
 		return 299.99f; // Falsificação
 	}
+
+	public void cadastrarDeducao(String descricaoDeducao, float valorDeducao) {
+		this.descricaoDeducao = descricaoDeducao;
+		this.valorDeducao = valorDeducao;
+	}
+
+	public float getDeducao() {
+		return 1500f; //Falsificação
+	}
+	
+	
+
 }
