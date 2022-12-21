@@ -19,6 +19,20 @@ class CadastrarPrevidenciaOficial {
 	public void setUp() {
 		sim = new SimuladorIRPF();
 	}
+	
+	@Test
+	void testCadastraPrevidenciaOficial() throws DescricaoEmBrancoException, ValorDeducaoInvalidoException {
+		assertEquals(sim.cadastrarPrevidenciaOficial("Previdencia Oficial 1", 190.00f), 190.00f, 0);
+
+		assertEquals(190f, sim.getValorTotalPrevidenciasOficiais(), 0f);
+	}
+	
+	@Test
+	void testCadastraPrevidenciaOficial2() throws DescricaoEmBrancoException, ValorDeducaoInvalidoException {
+		assertEquals(sim.cadastrarPrevidenciaOficial("Previdencia Oficial 2", 250.00f), 250.00f, 0);
+
+		assertEquals(250f, sim.getValorTotalPrevidenciasOficiais(), 0f);
+	}
 
 	@Test
 	void testCadastraDuasPrevidenciasOficiais() throws DescricaoEmBrancoException, ValorDeducaoInvalidoException {

@@ -18,7 +18,7 @@ public class SimuladorIRPF {
 	private float valorTotalDeducao;
 	private float valorTotalDependenteTriangulacao;
 	private float valorDependente = 299.99f;
-	private float valorTotalPrevidenciasOficiais = 0f;
+	private float valorTotalPrevidenciasOficiaisTriangulacao = 0f;
 	private List<PrevidenciaOficial> previdenciasOficiais;
 	private float valorTotalPensaoAlimenticia;
 	private List<PensaoAlimenticia> pensoesAlimenticias;
@@ -38,6 +38,8 @@ public class SimuladorIRPF {
 		dependente = new LinkedList<Dependente>();
 		
 		pensoesAlimenticias = new LinkedList<PensaoAlimenticia>();
+		
+		previdenciasOficiais = new LinkedList<PrevidenciaOficial>();
 		
 		this.totalImposto = 0;
 		this.baseCalculo = 0;
@@ -78,15 +80,17 @@ public class SimuladorIRPF {
 		// -=-=-=-=-=-=- Business Rules -=-=-=-=-=-=-
 		
 		PrevidenciaOficial novaPrevidenciaOficial = new PrevidenciaOficial(descricao, valorPrevidencia);
+
+		this.previdenciasOficiais.add(novaPrevidenciaOficial);
 		
-		this.valorTotalPrevidenciasOficiais += novaPrevidenciaOficial.valor;
+		this.valorTotalPrevidenciasOficiaisTriangulacao += novaPrevidenciaOficial.valor;
 		
 		return novaPrevidenciaOficial.valor;
 	}
 
 	
 	public float getValorTotalPrevidenciasOficiais() {
-		return this.valorTotalPrevidenciasOficiais; // teste de duplicação
+		return this.valorTotalPrevidenciasOficiaisTriangulacao; // Teste de triangulação
 	}
 	
 	public void cadastroDependente(String nomeDependente, String dataDeNascimento) throws Exception {
