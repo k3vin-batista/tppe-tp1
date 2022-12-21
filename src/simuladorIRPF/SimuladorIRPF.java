@@ -26,6 +26,11 @@ public class SimuladorIRPF {
 	private static List<Rendimento> rendimentos;
 	private float totalRendimento;;
 	
+	private float totalImposto;
+	private float baseCalculo;
+	private static List<Imposto> impostos;
+
+	
 	public SimuladorIRPF() {
 		rendimentos = new ArrayList<Rendimento>();
 		this.totalRendimento = 0;
@@ -33,6 +38,10 @@ public class SimuladorIRPF {
 		dependente = new LinkedList<Dependente>();
 		
 		pensoesAlimenticias = new LinkedList<PensaoAlimenticia>();
+		
+		this.totalImposto = 0;
+		this.baseCalculo = 0;
+		impostos = new ArrayList<Imposto>();
 	}
 	
 	
@@ -89,9 +98,51 @@ public class SimuladorIRPF {
 		this.valorTotalDependenteTriangulacao += valorDependente;
 	}
 	
+	public void setarBaseCalculo() {
+		this.baseCalculo = this.getTotalRendimento() - this.getDeducao();
+	}
+	
+	public void calculaImposto() {
+		this.setarBaseCalculo();
+		Imposto imp;
+		float base = this.baseCalculo;
 
-	public float getFaixaDeImposto() {
-		return 0f; // Falsificacao
+		if (base > 1903.98f){
+            
+			// segunda faixa
+            base -= 1903.98f;
+            imp = new Imposto((Math.min(base, 922.67f) * 7.5f/100), 2); 
+            impostos.add(imp);
+            if(base > 922.67f) {
+                
+            	// terceira faixa
+                base -= 922.67f;
+                imp = new Imposto((Math.min(base, 924.40f) * 15f/100), 3); 
+                impostos.add(imp);
+                if (base > 924.40f) {
+                    
+                	// quarta faixa
+                    base -= 924.40f;
+                    imp = new Imposto((Math.min(base, 913.63f) * 22.5f/100), 4);
+                    impostos.add(imp);
+                    if(base > 913.63f) {
+                        
+                    	// quinta faixa
+                        base -= 913.63f;
+                        imp = new Imposto(( base * 27.5f/100), 5);
+                        impostos.add(imp);
+
+                    }
+                }
+            }    
+        }
+	}
+
+	public float getTotalImposto() {
+		for(Imposto i : impostos){
+			this.totalImposto += i.getValor();
+		}
+		return this.totalImposto;
 	}	
 	
 	public float getDependente() {
