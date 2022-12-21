@@ -19,18 +19,21 @@ class CadastrarRendimentoTest {
 		
 	@Test
 	void testCadastrarRendimento1() {
-		assertEquals(3000f, simuladorIRPF.cadastrarRendimento("salario", 3000f), 0);
+		simuladorIRPF.cadastrarRendimento("salario", 3000f);
+		assertEquals(3000f, simuladorIRPF.getTotalRendimento(), 0);
 	}
 	
 	@Test
 	void testCadastrarRendimento2() {
-		assertEquals(5000f, simuladorIRPF.cadastrarRendimento("aluguel", 5000f), 0);
+		simuladorIRPF.cadastrarRendimento("aluguel", 5000f);
+		assertEquals(5000f, simuladorIRPF.getTotalRendimento(), 0);
 	}
 	
 	@Test
 	void testCadastrarRendimento3() {
-		assertEquals(1000f, simuladorIRPF.cadastrarRendimento("dividendos", 1000f), 0);
-		assertEquals(5000f, simuladorIRPF.cadastrarRendimento("dividendos", 4000f), 0);
+		simuladorIRPF.cadastrarRendimento("dividendos", 1000f);
+		simuladorIRPF.cadastrarRendimento("dividendos", 4000f);
+		assertEquals(5000f, simuladorIRPF.getTotalRendimento(), 0);
 	}
 
 }

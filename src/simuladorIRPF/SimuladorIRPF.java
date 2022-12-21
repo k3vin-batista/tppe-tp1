@@ -24,28 +24,34 @@ public class SimuladorIRPF {
 	private List<PensaoAlimenticia> pensoesAlimenticias;
 
 	private static List<Rendimento> rendimentos;
+	private float totalRendimento;;
 	
 	public SimuladorIRPF() {
 		rendimentos = new ArrayList<Rendimento>();
+		this.totalRendimento = 0;
 		
 		dependente = new LinkedList<Dependente>();
 		
 		pensoesAlimenticias = new LinkedList<PensaoAlimenticia>();
 	}
+	
+	
 
-	public float cadastrarRendimento(String descricao, float valor) {
+	public void cadastrarRendimento(String descricao, float valor) {
 		
-		float totalRendimentos = 0;
+		
 		Rendimento temp = new Rendimento(descricao, valor);
 		
 		Boolean adicionado = rendimentos.add(temp);
 		
 		if(adicionado) {
-			for (Rendimento r : rendimentos)
-				totalRendimentos += r.getValor();
+			this.totalRendimento += valor;
 		}
-		
-		return totalRendimentos;
+	
+	}
+	
+	public float getTotalRendimento() {
+		return totalRendimento;
 	}
 	
 	public float cadastrarPrevidenciaOficial(String descricao, float valorPrevidencia) throws DescricaoEmBrancoException, ValorDeducaoInvalidoException {
