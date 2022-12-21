@@ -18,7 +18,7 @@ public class SimuladorIRPF {
 	private float valorTotalDeducao;
 	private float valorTotalDependenteTriangulacao;
 	private float valorDependente = 299.99f;
-	private float valorTotalPrevidenciasOficiais = 0f;
+	private float valorTotalPrevidenciasOficiaisTriangulacao = 0f;
 	private List<PrevidenciaOficial> previdenciasOficiais;
 	private float valorTotalPensaoAlimenticia;
 	private List<PensaoAlimenticia> pensoesAlimenticias;
@@ -29,6 +29,8 @@ public class SimuladorIRPF {
 	private float totalImposto;
 	private float baseCalculo;
 	private static List<Imposto> impostos;
+	
+	private float aliquota;
 
 	
 	public SimuladorIRPF() {
@@ -39,9 +41,13 @@ public class SimuladorIRPF {
 		
 		pensoesAlimenticias = new LinkedList<PensaoAlimenticia>();
 		
+		previdenciasOficiais = new LinkedList<PrevidenciaOficial>();
+		
 		this.totalImposto = 0;
 		this.baseCalculo = 0;
 		impostos = new ArrayList<Imposto>();
+		
+		this.aliquota = 0;
 	}
 	
 	
@@ -78,15 +84,17 @@ public class SimuladorIRPF {
 		// -=-=-=-=-=-=- Business Rules -=-=-=-=-=-=-
 		
 		PrevidenciaOficial novaPrevidenciaOficial = new PrevidenciaOficial(descricao, valorPrevidencia);
+
+		this.previdenciasOficiais.add(novaPrevidenciaOficial);
 		
-		this.valorTotalPrevidenciasOficiais += novaPrevidenciaOficial.valor;
+		this.valorTotalPrevidenciasOficiaisTriangulacao += novaPrevidenciaOficial.valor;
 		
 		return novaPrevidenciaOficial.valor;
 	}
 
 	
 	public float getValorTotalPrevidenciasOficiais() {
-		return this.valorTotalPrevidenciasOficiais; // teste de duplicação
+		return this.valorTotalPrevidenciasOficiaisTriangulacao; // Teste de triangulação
 	}
 	
 	public void cadastroDependente(String nomeDependente, String dataDeNascimento) throws Exception {
@@ -189,6 +197,15 @@ public class SimuladorIRPF {
 	
 	public float getPensaoAlimenticia() {
 		return this.valorTotalPensaoAlimenticia; // Triangulação
+	}
+	
+
+	public float getAliquota() {
+		return this.aliquota;
+	}
+
+	public void setarAliquota() {
+		this.aliquota = ( this.getTotalImposto()/this.getTotalRendimento() ) * 100;
 	}
 	
 }
