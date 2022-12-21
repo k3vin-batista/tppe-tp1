@@ -1,13 +1,13 @@
 package simuladorIRPF;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 class SimuladorIRPFTest {
 
-	@BeforeAll
+	@Before
 	static void setUpBeforeClass() throws Exception {
 	}
 
