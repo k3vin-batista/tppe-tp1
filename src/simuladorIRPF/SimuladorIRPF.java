@@ -116,7 +116,7 @@ public class SimuladorIRPF {
 	}
 	
 	public float getPensaoAlimenticia() {
-		return 250f; // Falsificação
+		return this.valorPensaoAlimenticia; // Duplicação
 	}
 	
 }
