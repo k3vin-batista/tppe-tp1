@@ -20,9 +20,8 @@ public class SimuladorIRPF {
 	private float valorDependente = 299.99f;
 	private float valorTotalPrevidenciasOficiais = 0f;
 	private List<PrevidenciaOficial> previdenciasOficiais;
-	private String descontoPensaoAlimenticia;
-	private float valorPensaoAlimenticia;
-	
+	private float valorTotalPensaoAlimenticia;
+	private List<PensaoAlimenticia> pensoesAlimenticias;
 
 	private static List<Rendimento> rendimentos;
 	
@@ -30,6 +29,8 @@ public class SimuladorIRPF {
 		rendimentos = new ArrayList<Rendimento>();
 		
 		dependente = new LinkedList<Dependente>();
+		
+		pensoesAlimenticias = new LinkedList<PensaoAlimenticia>();
 	}
 
 	public float cadastrarRendimento(String descricao, float valor) {
@@ -108,15 +109,25 @@ public class SimuladorIRPF {
 	}
 	
 	public void cadastrarPensaoAlimenticia(
-			String descontoPensaoAlimenticia, 
-			float valorPensaoAlimenticia) 
+			String descricaoPensaoAlimenticia, 
+			float valorPensaoAlimenticia) throws Exception
 	{
-		this.descontoPensaoAlimenticia = descontoPensaoAlimenticia;
-		this.valorPensaoAlimenticia = valorPensaoAlimenticia;
+		if(descricaoPensaoAlimenticia.trim().length() < 1) {
+			throw new DescricaoEmBrancoException();
+		}
+		
+		if(valorPensaoAlimenticia <= 0) {
+			throw new ValorDeducaoInvalidoException();
+		}
+		
+		PensaoAlimenticia novaPensao = new PensaoAlimenticia(descricaoPensaoAlimenticia, valorPensaoAlimenticia);
+		this.pensoesAlimenticias.add(novaPensao);
+		
+		this.valorTotalPensaoAlimenticia += valorPensaoAlimenticia;
 	}
 	
 	public float getPensaoAlimenticia() {
-		return this.valorPensaoAlimenticia; // Duplicação
+		return this.valorTotalPensaoAlimenticia; // Triangulação
 	}
 	
 }
