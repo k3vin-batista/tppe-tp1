@@ -98,12 +98,16 @@ public class SimuladorIRPF {
 		this.valorTotalDependenteTriangulacao += valorDependente;
 	}
 	
-	public void setarBaseCalculo() {
-		this.baseCalculo = this.getTotalRendimento() - this.getDeducao();
+	public void setarBaseCalculo(float baseCalculo) {
+		this.baseCalculo = baseCalculo;
+	}
+
+	public float getBaseCalculo() {
+		return this.baseCalculo;
 	}
 	
 	public void calculaImposto() {
-		this.setarBaseCalculo();
+		
 		Imposto imp;
 		float base = this.baseCalculo;
 
