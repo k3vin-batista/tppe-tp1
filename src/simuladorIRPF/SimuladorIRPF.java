@@ -29,6 +29,8 @@ public class SimuladorIRPF {
 	private float totalImposto;
 	private float baseCalculo;
 	private static List<Imposto> impostos;
+	
+	private float aliquota;
 
 	
 	public SimuladorIRPF() {
@@ -44,6 +46,8 @@ public class SimuladorIRPF {
 		this.totalImposto = 0;
 		this.baseCalculo = 0;
 		impostos = new ArrayList<Imposto>();
+		
+		this.aliquota = 0;
 	}
 	
 	
@@ -195,13 +199,13 @@ public class SimuladorIRPF {
 		return this.valorTotalPensaoAlimenticia; // Triangulação
 	}
 	
+
 	public float getAliquota() {
-		return 0; // falsificacao
+		return this.aliquota;
 	}
 
-	public void setAliquota(float f) {
-		// TODO Auto-generated method stub
-
+	public void setarAliquota() {
+		this.aliquota = ( this.getTotalImposto()/this.getTotalRendimento() ) * 100;
 	}
 	
 }

@@ -19,13 +19,33 @@ class AliquotaTest {
 		}
 
 		@Test
-		public void Test() throws Exception{ 
-			simuladorIRPF.cadastrarRendimento("dividendos", 1f);
-			simuladorIRPF.cadastrarDeducao("dividendos", 1f);
+		public void TestaAliquotaEfetiva1() throws Exception{ 	
+			simuladorIRPF.cadastrarRendimento("dividendos", 2903.98f);
+			simuladorIRPF.cadastrarDeducao("dividendos", 1000f);
 			simuladorIRPF.setarBaseCalculo(simuladorIRPF.getTotalRendimento() - simuladorIRPF.getDeducao());
 			simuladorIRPF.calculaImposto();
-			simuladorIRPF.setAliquota( (simuladorIRPF.getTotalImposto()/simuladorIRPF.getTotalRendimento() )* 100);
-			assertEquals(0, simuladorIRPF.getAliquota(), 2f);
+			simuladorIRPF.setarAliquota();
+			assertEquals(0f, simuladorIRPF.getAliquota(), 2f);
+		}
+		
+		@Test
+		public void TestaAliquotaEfetiva2() throws Exception{ 
+			simuladorIRPF.cadastrarRendimento("dividendos", 6456.54f);
+			simuladorIRPF.cadastrarDeducao("dividendos", 1000f);
+			simuladorIRPF.setarBaseCalculo(simuladorIRPF.getTotalRendimento() - simuladorIRPF.getDeducao());
+			simuladorIRPF.calculaImposto();
+			simuladorIRPF.setarAliquota();
+			assertEquals(9.77, simuladorIRPF.getAliquota(), 2f);
+		}
+		
+		@Test
+		public void TestaAliquotaEfetiva3() throws Exception{ 
+			simuladorIRPF.cadastrarRendimento("Aluguel", 4664.68f);
+			simuladorIRPF.cadastrarDeducao("Aluguel", 800f);
+			simuladorIRPF.setarBaseCalculo(simuladorIRPF.getTotalRendimento() - simuladorIRPF.getDeducao());
+			simuladorIRPF.calculaImposto();
+			simuladorIRPF.setarAliquota();
+			assertEquals(5.00f, simuladorIRPF.getAliquota(), 2f);
 		}
 
 	}
