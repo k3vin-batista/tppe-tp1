@@ -191,4 +191,13 @@ public class SimuladorIRPF {
 		return this.valorTotalPensaoAlimenticia; // Triangulação
 	}
 	
+	public float getAliquota() {
+		return 0; // falsificacao
+	}
+
+	public void setAliquota(float f) {
+		// TODO Auto-generated method stub
+
+	}
+	
 }
