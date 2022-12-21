@@ -2,7 +2,6 @@ package simuladorIRPF.calculaImposto;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,15 +16,12 @@ SimuladorIRPF simuladorIRPF;
 		simuladorIRPF = new SimuladorIRPF();
 	}
 
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
 
 	@Test
 	public void Test() throws Exception{
-		simuladorIRPF.cadastrarRendimento("Aluguel", 0f);
-		simuladorIRPF.cadastrarDeducao("Aluguel Deducao", 0f);
-		assertEquals(0f , simuladorIRPF.getFaixa(), 0f);
+		simuladorIRPF.cadastrarRendimento("Aluguel", 1f);
+		simuladorIRPF.cadastrarDeducao("Aluguel Deducao", 1f);
+		assertEquals(0f , simuladorIRPF.getFaixaDeImposto(), 0f); // falsificacao
 	}
 
 }

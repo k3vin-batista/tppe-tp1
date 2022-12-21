@@ -84,7 +84,7 @@ public class SimuladorIRPF {
 	}
 	
 
-	public float getFaixa() {
+	public float getFaixaDeImposto() {
 		return 0f; // Falsificacao
 	}	
 	
