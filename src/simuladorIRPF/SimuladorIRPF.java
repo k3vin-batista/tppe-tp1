@@ -28,7 +28,8 @@ public class SimuladorIRPF {
 
 	private float totalImposto;
 	private float baseCalculo;
-	private static List<Imposto> impostos;
+	private List<Imposto> impostos;
+
 
 	private float aliquota;
 
@@ -112,41 +113,7 @@ public class SimuladorIRPF {
 
 	public void calculaImposto() {
 
-		float base = this.baseCalculo;
-		this.calculaFaixa(base);
-
-	}
-
-	public void calculaFaixa(float base) {
-		Imposto imposto;
-		if (base > 1903.98f) {
-			// segunda faixa
-			base -= 1903.98f;
-			imposto = new Imposto((Math.min(base, 922.67f) * 7.5f / 100), 2);
-			impostos.add(imposto);
-			if (base > 922.67f) {
-
-				// terceira faixa
-				base -= 922.67f;
-				imposto = new Imposto((Math.min(base, 924.40f) * 15f / 100), 3);
-				impostos.add(imposto);
-				if (base > 924.40f) {
-
-					// quarta faixa
-					base -= 924.40f;
-					imposto = new Imposto((Math.min(base, 913.63f) * 22.5f / 100), 4);
-					impostos.add(imposto);
-					if (base > 913.63f) {
-
-						// quinta faixa
-						base -= 913.63f;
-						imposto = new Imposto((base * 27.5f / 100), 5);
-						impostos.add(imposto);
-
-					}
-				}
-			}
-		}
+		new CalculaImposto(this).calcularImposto();
 
 	}
 
@@ -205,4 +172,7 @@ public class SimuladorIRPF {
 		this.aliquota = (this.getTotalImposto() / this.getTotalRendimento()) * 100;
 	}
 
+	public void adicionaImposto(Imposto imposto) {
+		this.impostos.add(imposto);
+	}
 }
