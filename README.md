@@ -53,3 +53,10 @@ Para desenvolvimento do projeto, utilizamos as técnicas de TDD: falsificação,
 
 ![Commit exemplo 1](/screenshots/commits-2.png)
 
+## Entrega TP2 - Refatoração
+
+- [Extrair Método](https://github.com/k3vin-batista/tppe-tp1/commit/08306b9f20b945634858f56570d6096483a7649c)
+
+- [Substituir método p/ met. objeto](https://github.com/k3vin-batista/tppe-tp1/commit/2e52b9ae48a42401e9e24cdf640d2ce1442cda1e)
+
+- [Extrair constantes](https://github.com/k3vin-batista/tppe-tp1/commit/cb3403ea224d2efb991b9090216d30f51462fa1f)
