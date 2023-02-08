@@ -67,8 +67,43 @@ Em geral, escrever código elegante pode melhorar a qualidade do código, torná
 - Extrair Método: Separar um método pode ajudar a lidar com métodos longos, reduzindo sua extensão. Também pode concentrar elementos variáveis em uma única localização. Maus cheiros relacionados: método longo e mudanças divergentes.
 - Extrair Classe/Subclasse: Agrupa variáveis juntas, tornando-as uma subclasse da classe relevante ou do projeto como um todo. Maus cheiros relacionados: Classe grande.
 - Substituir Parâmetro por Método: Em vez de passar dados como parâmetro, o método do objeto que contém o dado é chamado, o que reduz a quantidade de parâmetros transmitidos. Maus cheiros relacionados: Longa lista de parâmetros.
-- Mover Método: Método é retirado de uma classe e colocado em outra classe mais adequada. Isso é feito para ajudar a manter a coesão dos métodos e classes, tornando o código mais claro e fácil de manter. Maus cheiros relacionados: Cirurgia com rifle, Homem do meio
+- Mover Método: Método é retirado de uma classe e colocado em outra classe mais adequada. Isso é feito para ajudar a manter a coesão dos métodos e classes, tornando o código mais claro e fácil de manter. Maus cheiros relacionados: Cirurgia com rifle, Homem do meio.
 
+## Modularidade
+
+### Descrição
+
+O desenvolvimento de um design de um problema envolve o processo de separá-lo em partes menos complexas, conhecidas como módulos ou componentes. Essas partes podem ser denominadas como subsistemas, bibliotecas, pacotes, classes, etc. Quando juntas, elas formam uma solução abrangente e completa ao problema original. A modularidade tem como características principais:
+
+- **Alta coesão:** A coesão é uma métrica que avalia a integração e o desempenho conjunto das funções relacionadas em um módulo. Ela é responsável por manter o módulo coeso. Sem coesão, os componentes são desconexos e, para evitar isso, é necessário que cada módulo tenha uma função claramente definida.
+
+- **Baixo acoplamento:** O acoplamento é uma medida da interdependência entre os módulos. Em projetos mais simples, os módulos apresentam baixo nível de acoplamento, o que os torna menos dependentes uns dos outros. No entanto, é impossível que os módulos sejam completamente desacoplados, já que eles precisam trabalhar juntos como parte de um sistema. Esses módulos podem se conectar de várias maneiras: diretamente, indiretamente, por meio de chamadas de funções em outros módulos ou por serem chamados por outros módulos. Eles também podem utilizar os tipos de dados de outros módulos ou compartilhar dados, como variáveis ou arquivos.
+
+Em resumo, um design de software eficiente restringe as interações entre os módulos ao mínimo essencial. Estas interações formam parte da estrutura do código. Uma vez identificados, os módulos podem ser desenvolvidos e testados individualmente, o que é uma vantagem da modularização. Além disso, é possível dividir as tarefas entre os programadores, mas é importante ter cuidado para garantir que a decomposição seja lógica e baseada na solução do problema, em vez da organização da equipe.
+
+### Relação com Maus Cheiros
+
+Essa característica pode ter associada os seguintes maus cheiros:
+
+- **Cirurgia com rifle:** Quando uma mudança é feita, muitas classes precisam ser alteradas. Pode ser desafiador localizar todos os pontos afetados e há o risco de esquecer alguma modificação.
+
+- **Hierarquias de herança paralelas:** Se você incluir uma subclasse em um ramo, será necessário adicionar a mesma subclasse em outro ramo. Este é um exemplo de caso especial de cirurgia com rifle.
+
+- **Inveja de recursos:** Dá-se quando os métodos de uma classe estão fortemente ligados aos recursos de outras classes (normalmente atributos). O uso excessivo de métodos get pode ser um sinal disso.
+
+- **Classe preguiçosa:** O uso em excesso da divisão em módulos pode resultar em classes que não têm uma funcionalidade suficiente para justificar sua preservação no projeto.
+
+- **Cadeias de mensagens:** Isso acontece quando um objeto convoca outro, que convoca outro, e assim por diante. Normalmente, isso é causado por meio de métodos Get. Também é uma indicação de alta interdependência, com o projeto fortemente vinculado à navegação dos métodos.
+
+### Refatoração
+
+Podem ser aplicadas as seguintes operações de refatoração:
+
+- **Mover método ou mover campo:** consiste em mover o código de um método de uma classe para outra classe mais apropriada. O objetivo é melhorar a organização do código, torná-lo mais legível e fácil de manter, além de promover a responsabilidade única e a coesão.
+
+- **Incorporar classe:** é um método de refatoração que consiste em integrar a funcionalidade de uma classe secundária na classe principal. Isso pode ser feito quando as classes são fortemente inter-relacionadas e a funcionalidade da classe secundária é melhor compreendida como parte da classe principal. O objetivo desse método de refatoração é aumentar a coesão, caso ela tenha sofrido prejuizo com o movimento de métodos e campos para outra classe.
+
+- **Extrair método:** nos casos de Inveja de Recursos em que apenas uma parte do código da outra classe é afetada, é necessário corrigir essa dependência. Já nas situações de Cadeia de Mensagens, é importante separar a parte do código usada pelo cliente e transferi-la para o início da cadeia de mensagens.
 
 ## Alunos
 
