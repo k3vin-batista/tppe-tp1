@@ -105,6 +105,29 @@ Podem ser aplicadas as seguintes operações de refatoração:
 
 - **Extrair método:** nos casos de Inveja de Recursos em que apenas uma parte do código da outra classe é afetada, é necessário corrigir essa dependência. Já nas situações de Cadeia de Mensagens, é importante separar a parte do código usada pelo cliente e transferi-la para o início da cadeia de mensagens.
 
+
+## Extensibilidade
+
+### Descrição 
+
+Uma boa organização do código permite a adição de novas funcionalidades de maneira adequada quando necessário, sem afetar o futuro desenvolvimento do código. Isso pode ser alcançado com a utilização de uma hierarquia de classes com interface implementada, oferecendo funções com callbacks úteis e mantendo uma estrutura lógica e maleável. É crucial tomar precauções para evitar futuros problemas.
+
+### Relação com Maus Cheiros
+
+- Métodos longos: Agrupam várias operações diferentes em um único método, o que deixa mais inconsistente com a adição de novas funcionalidades.
+- Longa lista de parâmetros: Os métodos ficariam mais inchados e mais complexos de entender e usar.
+- Cirurgia com Rifle: Várias classes precisam ser modificadas para realizar uma única mudança, tornando difícil a adição de novas regras e funcionalidades.
+- Instruções switch: Várias instruções switch com os mesmos cases espalhadas pelo código, dificultando a adição de novos casos.
+
+
+### Refatoração 
+
+- Extrair Método: Separar em métodos diferentes pode ajudar a lidar com métodos extensos, tornando-os menores. Maus Cheiros associados incluem: Método longo e Instruções switch.
+- Substituir Método por método-objeto: Transformar o método para uma classe que tem o objetivo singular de executar esse método, tirando a responsabilidade   da classe anterior. Maus cheiros relacionados: Método longo;
+- Introduzir objeto-parâmetro: Transformar os parâmetros do método em um objeto para facilitar o uso desse método por outras classes. Maus cheiros relacionados: Longa lista de parâmetros;
+- Mover método/mover campo: Mover métodos e campos para classes que mais os utilizam, evitando ter que fazer alterações em várias classes. Maus cheiros associados: Cirurgia com Rifle, Instruções switch.
+
+
 ## Alunos
 
 | Matrícula | Nome                                |
