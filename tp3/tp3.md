@@ -2,6 +2,25 @@
 
 Repositório para o trabalho prático 3 da disciplina Tópicos de Programação para Plataformas Emergentes - UnB 2022/2
 
+## Simplicidade
+
+### Descrição:
+Dentro de qualquer software, a simplicidade nada mais é que um código que tem como propriedades a facilidade de leitura, compreensão e modificação, mesmo que por outras pessoas que não são os autores originais. A simplicidade é alcançada por meio da organização clara e coerente do código, bem como da utilização de convenções e boas práticas de programação. Ela auxilia na garantia da manutenibilidade, flexibilidade e escalabilidade de um software ao longo do tempo. 
+
+A simplicidade é fortemente ligada ao ser humano, já que ela é tanto escrita por um programador quanto deverá ser facilmente entendida por outros. A simplicidade de código é diretamente relacionada aos maus cheiros, pois a remoção dos maus cheiros pode ajudar a tornar o código mais simples e fácil de entender.
+
+### Relação com maus cheiros: 
+Esta característica tem uma relação com os sinais de maus cheiros:
+
+- Código duplicado: Ao ter fragmentos de código repetido em diferentes locais do projeto, a complexidade aumenta e a clareza é perdida.
+- Método longo: Quanto maior o tamanho de um método, mais complexo ele se torna para ser compreendido.
+- Classe grande: Quanto mais ampla a classe, mais difícil fica para compreender sua finalidade.
+
+ 
+### Refatoração:
+- Extrair Método: Essa operação permite diminuir o tamanho do método, tornando-o mais simples e fácil de compreender.
+- Renomear Variável: Essa ação transforma o nome da variável para uma representação mais clara e de fácil compreensão.
+
 ## Boa documentação
 
 ### Descrição
