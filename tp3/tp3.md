@@ -127,6 +127,52 @@ Uma boa organização do código permite a adição de novas funcionalidades de 
 - Introduzir objeto-parâmetro: Transformar os parâmetros do método em um objeto para facilitar o uso desse método por outras classes. Maus cheiros relacionados: Longa lista de parâmetros;
 - Mover método/mover campo: Mover métodos e campos para classes que mais os utilizam, evitando ter que fazer alterações em várias classes. Maus cheiros associados: Cirurgia com Rifle, Instruções switch.
 
+## Ausência de duplicidade
+
+### Descrição 
+
+A duplicidade de código é uma situação em que o mesmo trecho de código é repetido mais de uma vez em um projeto de software. Isso pode ter vários efeitos negativos na qualidade do código.
+
+Em termos de estrutura, a duplicidade de código pode tornar o código mais complexo e difícil de entender, especialmente se houver várias cópias do mesmo trecho de código com pequenas modificações. Isso pode levar a erros e dificultar a manutenção e evolução do código.
+
+Em termos de clareza, a duplicidade de código pode afetar a legibilidade do código, pois há mais linhas de código para serem lidas e entendidas. Além disso, a duplicidade de código pode tornar mais difícil identificar o propósito de cada trecho de código.
+
+Em termos de coesão, a duplicidade de código pode afetar a capacidade do código de funcionar de forma coerente e consistente. Se houver várias cópias de um mesmo trecho de código, pode ser difícil garantir que todas elas sejam mantidas sincronizadas.
+
+Em termos de acoplamento, a duplicidade de código pode aumentar a dependência entre diferentes partes do código. Isso pode dificultar a reutilização de trechos de código em outras partes do projeto ou em outros projetos.
+
+Portanto, a duplicidade de código pode afetar negativamente a qualidade do código em vários aspectos, incluindo a estrutura, clareza, coesão e acoplamento. Por isso, é importante evitar a duplicidade de código e utilizar técnicas de programação para garantir a qualidade e manutenibilidade do código.
+
+### Relação com Maus Cheiros
+
+Alguns dos maus-cheiros de código relacionados à duplicidade de código incluem:
+
+Código duplicado: Esse é o mau cheiro mais óbvio relacionado à duplicidade de código. Quando o mesmo trecho de código é repetido mais de uma vez em um projeto, isso pode tornar o código mais complexo e difícil de manter.
+
+Métodos longos: A duplicidade de código pode levar a métodos longos e complexos que contêm várias cópias do mesmo trecho de código. Isso pode tornar o código menos legível e mais difícil de entender.
+
+Classes com muitas responsabilidades: Quando há cópias de trechos de código em várias classes, isso pode levar a classes com muitas responsabilidades, o que pode prejudicar a coesão e acoplamento do código.
+
+Classes complexas: A duplicidade de código pode tornar as classes mais complexas e difíceis de entender, pois há mais trechos de código para serem lidos e analisados.
+
+Podemos destacar que a duplicidade de código é uma característica que pode levar a vários maus-cheiros de código, incluindo código duplicado, métodos longos, classes com muitas responsabilidades e classes complexas. Por isso, é importante evitar a duplicidade de código e utilizar técnicas de refactoring para melhorar a qualidade do código.
+
+### Refatoração 
+
+Existem várias operações de refatoração que podem ser usadas para remover a duplicidade de código em um projeto de software. Algumas dessas operações incluem:
+
+Extrair método: Quando há trechos de código repetidos em diferentes partes do projeto, esses trechos podem ser extraídos e colocados em um método separado. Esse método pode então ser chamado sempre que for necessário executar esse trecho de código.
+
+Extrair classe: Quando há trechos de código repetidos em várias classes, esses trechos podem ser extraídos e colocados em uma classe separada. Essa classe pode então ser usada pelas classes que precisam desse trecho de código.
+
+Renomear método: Quando há métodos com nomes semelhantes em diferentes partes do projeto, esses métodos podem ser renomeados para refletir sua funcionalidade específica. Isso pode ajudar a evitar a confusão e a duplicidade de código.
+
+Consolidar métodos semelhantes: Quando há métodos com funcionalidades semelhantes em diferentes partes do projeto, esses métodos podem ser consolidados em um único método. Isso pode ajudar a evitar a duplicidade de código e tornar o código mais claro e fácil de entender.
+
+Extrair interface: Quando há trechos de código repetidos em várias classes que implementam a mesma funcionalidade, esses trechos podem ser extraídos e colocados em uma interface. As classes então podem implementar essa interface para aproveitar esse trecho de código.
+
+Em resumo, as operações de refatoração de extrair método, extrair classe, renomear método, consolidar métodos semelhantes e extrair interface podem ser usadas para remover a duplicidade de código em um projeto de software. É importante refatorar o código de forma constante para manter sua qualidade e evitar problemas como duplicidade de código.
+
 
 ## Alunos
 
